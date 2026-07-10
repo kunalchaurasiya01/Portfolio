@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunal Chaurasiya | Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Kunal Chaurasiya, a passionate Frontend Developer, Web Designer, and B.Sc. Computer Science student at the University of Delhi. Check out my projects, research, and certificates.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#090d16',
+                        darkCard: 'rgba(17, 24, 39, 0.7)',
+                        lightBg: '#f3f4f6',
+                        lightCard: 'rgba(255, 255, 255, 0.85)',
+                        accentPrimary: '#6366f1',
+                        accentSecondary: '#a855f7',
+                        accentCyan: '#06b6d4',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        heading: ['Syne', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body
+    class="bg-lightBg text-slate-800 dark:bg-darkBg dark:text-slate-100 font-sans transition-colors duration-300 overflow-x-hidden">
+
+    <!-- Interactive Cursor Glow Background -->
+    <div id="cursor-glow"
+        class="pointer-events-none fixed inset-0 z-35 transition-opacity duration-300 opacity-0 lg:opacity-100"></div>
+
+    <!-- Navigation Header -->
+    <header id="navbar"
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-slate-200/50 dark:border-white/5 bg-lightBg/60 dark:bg-darkBg/60 backdrop-blur-md">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#"
+                class="flex items-center space-x-2 text-xl font-heading font-extrabold tracking-wider bg-gradient-to-r from-accentPrimary via-accentSecondary to-accentCyan bg-clip-text text-transparent hover:scale-105 transition-transform">
+                <span>KUNAL CHAURASIYA</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600 dark:text-slate-350">
+                <a href="#about"
+                    class="hover:text-accentPrimary dark:hover:text-accentPrimary transition-colors relative group py-1">About
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-accentPrimary transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#experience"
+                    class="hover:text-accentPrimary dark:hover:text-accentPrimary transition-colors relative group py-1">Experience
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-accentPrimary transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#projects"
+                    class="hover:text-accentPrimary dark:hover:text-accentPrimary transition-colors relative group py-1">Projects
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-accentPrimary transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#certificates"
+                    class="hover:text-accentPrimary dark:hover:text-accentPrimary transition-colors relative group py-1">Credentials
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-accentPrimary transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#contact"
+                    class="hover:text-accentPrimary dark:hover:text-accentPrimary transition-colors relative group py-1">Contact
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-accentPrimary transition-all group-hover:w-full"></span>
+                </a>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="flex items-center space-x-4">
+                <!-- Theme Toggle -->
+                <button id="theme-toggle"
+                    class="p-2.5 rounded-full bg-slate-200/50 dark:bg-white/5 border border-slate-300/50 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-white/10 transition-all focus:outline-none"
+                    aria-label="Toggle Theme">
+                    <i data-lucide="sun" class="w-5 h-5 text-amber-500 hidden" id="sun-icon"></i>
+                    <i data-lucide="moon" class="w-5 h-5 text-indigo-500 dark:text-slate-400" id="moon-icon"></i>
+                </button>
+
+                <!-- Resume Download -->
+                <a href="assets/resume.pdf" download="Kunal_Chaurasiya_Resume.pdf"
+                    class="hidden sm:flex items-center space-x-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-white bg-gradient-to-r from-accentPrimary to-accentSecondary hover:shadow-[0_0_20px_rgba(99,102,241,0.3)] dark:hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] transition-all hover:-translate-y-0.5">
+                    <i data-lucide="download" class="w-4 h-4"></i>
+                    <span>Resume</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn"
+                    class="md:hidden p-2.5 rounded-full bg-slate-200/50 dark:bg-white/5 border border-slate-300/50 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-white/10 transition-all focus:outline-none"
+                    aria-label="Open Menu">
+                    <i data-lucide="menu" class="w-5 h-5 text-slate-700 dark:text-slate-300"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Dropdown Nav Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden border-t border-slate-200/50 dark:border-white/5 bg-lightBg/95 dark:bg-darkBg/95 backdrop-blur-lg px-6 py-6 space-y-4">
+            <a href="#about"
+                class="block text-lg font-medium text-slate-700 dark:text-slate-200 hover:text-accentPrimary transition-colors mobile-nav-link">About</a>
+            <a href="#experience"
+                class="block text-lg font-medium text-slate-700 dark:text-slate-200 hover:text-accentPrimary transition-colors mobile-nav-link">Experience</a>
+            <a href="#projects"
+                class="block text-lg font-medium text-slate-700 dark:text-slate-200 hover:text-accentPrimary transition-colors mobile-nav-link">Projects</a>
+            <a href="#certificates"
+                class="block text-lg font-medium text-slate-700 dark:text-slate-200 hover:text-accentPrimary transition-colors mobile-nav-link">Credentials</a>
+            <a href="#contact"
+                class="block text-lg font-medium text-slate-700 dark:text-slate-200 hover:text-accentPrimary transition-colors mobile-nav-link">Contact</a>
+            <a href="assets/resume.pdf" download="Kunal_Chaurasiya_Resume.pdf"
+                class="w-full flex items-center justify-center space-x-2 px-5 py-3 rounded-xl bg-gradient-to-r from-accentPrimary to-accentSecondary text-sm font-semibold text-center text-white uppercase tracking-wider">
+                <i data-lucide="download" class="w-4 h-4"></i>
+                <span>Download Resume</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="relative z-10 pt-24">
+
+        <!-- Hero Section -->
+        <section id="hero"
+            class="min-h-[calc(100vh-6rem)] flex items-center px-6 md:px-12 max-w-7xl mx-auto relative overflow-hidden">
+            <!-- Background glow grids -->
+            <div
+                class="absolute top-1/4 right-0 w-[400px] h-[400px] rounded-full bg-accentPrimary/10 blur-[120px] -z-10 animate-pulse-slow">
+            </div>
+            <div class="absolute bottom-10 left-10 w-[300px] h-[300px] rounded-full bg-accentSecondary/10 blur-[100px] -z-10 animate-pulse-slow"
+                style="animation-delay: 2s;"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full py-12">
+                <!-- Hero content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left scroll-reveal fade-left">
+                    <span
+                        class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-accentCyan bg-accentCyan/10 border border-accentCyan/20">
+                        <span class="w-2 h-2 rounded-full bg-accentCyan animate-ping"></span>
+                        <span>Available for Internships & Projects</span>
+                    </span>
+                    <h1
+                        class="text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold tracking-tight leading-none text-slate-900 dark:text-white">
+                        Hi, I'm <br class="sm:hidden">
+                        <span
+                            class="bg-gradient-to-r from-accentPrimary via-accentSecondary to-accentCyan bg-clip-text text-transparent">Kunal
+                            Chaurasiya</span>
+                    </h1>
+                    <h2
+                        class="text-xl sm:text-2xl font-heading font-medium text-slate-650 dark:text-slate-350 min-h-[40px]">
+                        I'm a <span id="typing-text"
+                            class="text-accentCyan font-semibold border-r-2 border-accentCyan/80 pr-1"></span>
+                    </h2>
+                    <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0">
+                        B.Sc. Computer Science student at the University of Delhi. Passionate about building highly
+                        interactive, responsive, and visually stunning web interfaces, crafting mobile solutions with
+                        Flutter, and researching technology's impact on education.
+                    </p>
+
+                    <!-- Call to Actions -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#projects"
+                            class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold uppercase tracking-wider text-center text-white bg-gradient-to-r from-accentPrimary to-accentSecondary hover:shadow-[0_0_30px_rgba(99,102,241,0.4)] dark:hover:shadow-[0_0_30px_rgba(99,102,241,0.6)] transition-all duration-300 hover:-translate-y-0.5">
+                            View My Work
+                        </a>
+                        <a href="#contact"
+                            class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold uppercase tracking-wider text-center text-slate-700 bg-slate-200/50 border border-slate-300 hover:bg-slate-200 dark:text-white dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/10 dark:hover:border-white/20 transition-all duration-300 hover:-translate-y-0.5">
+                            Contact Me
+                        </a>
+                    </div>
+
+                    <!-- Social Handles -->
+                    <div class="flex items-center justify-center lg:justify-start space-x-6 pt-6">
+                        <div class="flex items-center gap-5 pt-8">
+
+                            <a href="https://github.com/kunalchaurasiya01" class="w-14 h-14 rounded-full flex items-center justify-center
+                                bg-white/5 border border-white/10 backdrop-blur-md
+                                hover:bg-gradient-to-r hover:from-violet-500 hover:to-cyan-500
+                                hover:text-white hover:scale-110 hover:shadow-[0_0_25px_rgba(124,58,237,.45)]
+                                transition-all duration-300">
+                                <i class="fa-brands fa-github text-2xl"></i>
+                            </a>
+
+                            <a href="https://linkedin.com/in/kunalchaurasiya" class="w-14 h-14 rounded-full flex items-center justify-center
+                                bg-white/5 border border-white/10 backdrop-blur-md
+                                hover:bg-gradient-to-r hover:from-violet-500 hover:to-cyan-500
+                                hover:text-white hover:scale-110 hover:shadow-[0_0_25px_rgba(124,58,237,.45)]
+                                transition-all duration-300">
+                                <i class="fa-brands fa-linkedin-in text-2xl"></i>
+                            </a>
+
+                            <a href="mailto:kunalchaurasiya2006@gmail.com" class="w-14 h-14 rounded-full flex items-center justify-center
+                                bg-white/5 border border-white/10 backdrop-blur-md
+                                hover:bg-gradient-to-r hover:from-violet-500 hover:to-cyan-500
+                                hover:text-white hover:scale-110 hover:shadow-[0_0_25px_rgba(124,58,237,.45)]
+                                transition-all duration-300">
+                                <i data-lucide="mail" class="w-6 h-6"></i>
+                            </a>
+
+                            <a href="tel:+918957127225" class="w-14 h-14 rounded-full flex items-center justify-center
+                                bg-white/5 border border-white/10 backdrop-blur-md
+                                hover:bg-gradient-to-r hover:from-violet-500 hover:to-cyan-500
+                                hover:text-white hover:scale-110 hover:shadow-[0_0_25px_rgba(124,58,237,.45)]
+                                transition-all duration-300">
+                                <i data-lucide="phone" class="w-6 h-6"></i>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="lg:col-span-5 flex justify-center scroll-reveal fade-right">
+                    <div class="relative group">
+                        <!-- Neon gradient backing glow -->
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-r from-accentPrimary via-accentSecondary to-accentCyan rounded-3xl blur opacity-30 group-hover:opacity-75 transition duration-1000 group-hover:duration-200">
+                        </div>
+                        <!-- Profile Card Container -->
+                        <div
+                            class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-3xl bg-white/70 border border-slate-200 dark:bg-darkCard dark:border-white/10 backdrop-blur-xl p-4 overflow-hidden flex items-center justify-center shadow-xl">
+                            <img src="assets/0T4A2843.JPG" alt="Kunal Chaurasiya Avatar"
+                                class="w-full h-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105">
+                            <div
+                                class="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-slate-100/90 border border-slate-200 dark:bg-slate-900/80 dark:border-white/10 backdrop-blur-md text-center transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 opacity-90">
+                                <h3
+                                    class="text-sm font-heading font-extrabold tracking-wider uppercase text-slate-800 dark:text-slate-100">
+                                    Kunal Chaurasiya</h3>
+                                <p class="text-xs text-accentCyan">Frontend Developer & Researcher</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About & Skills Section -->
+        <section id="about" class="py-24 px-6 md:px-12 max-w-7xl mx-auto scroll-mt-12">
+            <div class="space-y-12">
+                <!-- Section Title -->
+                <div class="text-center space-y-3 scroll-reveal">
+                    <h2 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 dark:text-white">About Me
+                    </h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-accentPrimary to-accentSecondary mx-auto rounded-full">
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto">Get to know my educational
+                        background, programming skillset, and core competencies.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <!-- Left: Bio & Education -->
+                    <div class="lg:col-span-5 space-y-8 scroll-reveal fade-left">
+                        <div
+                            class="p-8 sm:p-10 rounded-2xl bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 shadow-xl space-y-6">
+                            <h3
+                                class="text-xl font-heading font-bold text-slate-800 dark:text-white flex items-center space-x-2">
+                                <i data-lucide="book-open" class="text-accentPrimary w-5 h-5"></i>
+                                <span>Education</span>
+                            </h3>
+                            <!-- Delhi University Card -->
+                            <div class="relative pl-6 border-l-2 border-accentPrimary/40 space-y-2">
+                                <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-accentPrimary"></div>
+                                <span class="text-xs font-semibold text-accentPrimary tracking-wider uppercase">2023 -
+                                    2027</span>
+                                <h4 class="text-lg font-bold text-slate-900 dark:text-white">B.Sc. Physical Science with
+                                    Computer Science</h4>
+                                <p class="text-sm font-semibold text-slate-700 dark:text-slate-300">University of Delhi
+                                </p>
+                                <div
+                                    class="inline-block px-3 py-1 rounded bg-slate-100 border border-slate-300 dark:bg-white/5 dark:border-white/10 text-xs font-medium mt-1">
+                                    CGPA: <span class="text-accentCyan font-bold text-sm">7.41</span>
+                                </div>
+                            </div>
+                            <!-- Intermediate Card -->
+                            <div class="relative pl-6 border-l-2 border-accentPrimary/40 space-y-2">
+                                <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-accentPrimary"></div>
+                                <span class="text-xs font-semibold text-accentPrimary tracking-wider uppercase">2021 -
+                                    2022</span>
+                                <h4 class="text-base font-bold text-slate-900 dark:text-white">Intermediate</h4>
+                                <p class="text-sm font-semibold text-slate-700 dark:text-slate-300">Pt. Nagesh Dutt
+                                    Public School, Pratapgarh</p>
+                                <div
+                                    class="inline-block px-3 py-1 rounded bg-slate-100 border border-slate-300 dark:bg-white/5 dark:border-white/10 text-xs font-medium mt-1">
+                                    Percentage: <span class="text-accentCyan font-bold text-sm">73.6%</span>
+                                </div>
+                            </div>
+                            <!-- High School Card -->
+                            <div class="relative pl-6 border-l-2 border-accentPrimary/40 space-y-2">
+                                <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-accentPrimary"></div>
+                                <span class="text-xs font-semibold text-accentPrimary tracking-wider uppercase">2019
+                                    - 2020</span>
+                                <h4 class="text-base font-bold text-slate-900 dark:text-white">High School</h4>
+                                <p class="text-sm font-semibold text-slate-700 dark:text-slate-300">Alka Pramod
+                                    Tiwari IC belha lalganj, Pratapgarh</p>
+                                <div
+                                    class="inline-block px-3 py-1 rounded bg-slate-100 border border-slate-300 dark:bg-white/5 dark:border-white/10 text-xs font-medium mt-1">
+                                    Percentage: <span class="text-accentCyan font-bold text-sm">88%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right: Skills Categorized -->
+                    <div class="lg:col-span-7 space-y-6 scroll-reveal fade-right">
+                        <div
+                            class="p-8 sm:p-10 rounded-2xl bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 shadow-xl space-y-8">
+                            <h3
+                                class="text-xl font-heading font-bold text-slate-800 dark:text-white flex items-center space-x-2">
+                                <i data-lucide="cpu" class="text-accentCyan w-5 h-5"></i>
+                                <span>Skills & Competencies</span>
+                            </h3>
+
+                            <!-- Programming Languages -->
+                            <div class="space-y-3">
+                                <h4
+                                    class="text-sm font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400">
+                                    Programming Languages</h4>
+                                <div class="flex flex-wrap gap-2.5">
+                                    <span
+                                        class="skill-badge flex items-center space-x-1.5 px-5 py-2.5 rounded-xl bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 font-medium text-sm hover:border-accentPrimary transition-colors cursor-default text-slate-700 dark:text-slate-300">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-accentPrimary"></span>
+                                        <span>C++</span>
+                                    </span>
+                                    <span
+                                        class="skill-badge flex items-center space-x-1.5 px-5 py-2.5 rounded-xl bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 font-medium text-sm hover:border-accentPrimary transition-colors cursor-default text-slate-700 dark:text-slate-300">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-accentPrimary"></span>
+                                        <span>Java</span>
+                                    </span>
+                                    <span
+                                        class="skill-badge flex items-center space-x-1.5 px-5 py-2.5 rounded-xl bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 font-medium text-sm hover:border-accentPrimary transition-colors cursor-default text-slate-700 dark:text-slate-300">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-accentPrimary"></span>
+                                        <span>Python</span>
+                                    </span>
+                                    <span
+                                        class="skill-badge flex items-center space-x-1.5 px-5 py-2.5 rounded-xl bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 font-medium text-sm hover:border-accentPrimary transition-colors cursor-default text-slate-700 dark:text-slate-300">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-accentPrimary"></span>
+                                        <span>JavaScript (ES6+)</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Web & Mobile -->
+                            <div class="space-y-3">
+                                <h4
+                                    class="text-sm font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400">
+                                    Web & Mobile Development</h4>
+                                <div class="flex flex-wrap gap-2.5">
+                                    <span
+                                        class="skill-badge flex items-center space-x-1.5 px-5 py-2.5 rounded-xl bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 font-medium text-sm hover:border-accentSecondary transition-colors cursor-default text-slate-700 dark:text-slate-300">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-accentSecondary"></span>
+                                        <span>HTML5</span>
+                                    </span>
+                                    <span
+                                        class="skill-badge flex items-center space-x-1.5 px-5 py-2.5 rounded-xl bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 font-medium text-sm hover:border-accentSecondary transition-colors cursor-default text-slate-700 dark:text-slate-300">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-accentSecondary"></span>
+                                        <span>CSS3 / Grid / Flexbox</span>
+                                    </span>
+                                    <span
+                                        class="skill-badge flex items-center space-x-1.5 px-5 py-2.5 rounded-xl bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 font-medium text-sm hover:border-accentSecondary transition-colors cursor-default text-slate-700 dark:text-slate-300">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-accentSecondary"></span>
+                                        <span>Tailwind CSS</span>
+                                    </span>
+                                    <span
+                                        class="skill-badge flex items-center space-x-1.5 px-5 py-2.5 rounded-xl bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 font-medium text-sm hover:border-accentSecondary transition-colors cursor-default text-slate-700 dark:text-slate-300">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-accentSecondary"></span>
+                                        <span>React.js</span>
+                                    </span>
+                                    <span
+                                        class="skill-badge flex items-center space-x-1.5 px-5 py-2.5 rounded-xl bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 font-medium text-sm hover:border-accentSecondary transition-colors cursor-default text-slate-700 dark:text-slate-300">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-accentSecondary"></span>
+                                        <span>Flutter</span>
+                                    </span>
+                                    <span
+                                        class="skill-badge flex items-center space-x-1.5 px-5 py-2.5 rounded-xl bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 font-medium text-sm hover:border-accentSecondary transition-colors cursor-default text-slate-700 dark:text-slate-300">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-accentSecondary"></span>
+                                        <span>Android Programming</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Core CS Principles -->
+                            <div class="space-y-3">
+                                <h4
+                                    class="text-sm font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400">
+                                    Core Computer Science</h4>
+                                <div class="flex flex-wrap gap-2.5">
+                                    <span
+                                        class="skill-badge flex items-center space-x-1.5 px-5 py-2.5 rounded-xl bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 font-medium text-sm hover:border-accentCyan transition-colors cursor-default text-slate-700 dark:text-slate-300">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-accentCyan"></span>
+                                        <span>Data Structures & Algorithms</span>
+                                    </span>
+                                    <span
+                                        class="skill-badge flex items-center space-x-1.5 px-5 py-2.5 rounded-xl bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 font-medium text-sm hover:border-accentCyan transition-colors cursor-default text-slate-700 dark:text-slate-300">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-accentCyan"></span>
+                                        <span>Operating Systems</span>
+                                    </span>
+                                    <span
+                                        class="skill-badge flex items-center space-x-1.5 px-5 py-2.5 rounded-xl bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 font-medium text-sm hover:border-accentCyan transition-colors cursor-default text-slate-700 dark:text-slate-300">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-accentCyan"></span>
+                                        <span>Software Engineering</span>
+                                    </span>
+                                    <span
+                                        class="skill-badge flex items-center space-x-1.5 px-5 py-2.5 rounded-xl bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 font-medium text-sm hover:border-accentCyan transition-colors cursor-default text-slate-700 dark:text-slate-300">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-accentCyan"></span>
+                                        <span>Data Engineering & Mining</span>
+                                    </span>
+                                    <span
+                                        class="skill-badge flex items-center space-x-1.5 px-5 py-2.5 rounded-xl bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 font-medium text-sm hover:border-accentCyan transition-colors cursor-default text-slate-700 dark:text-slate-300">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-accentCyan"></span>
+                                        <span>Computer Networks</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mini extra summary -->
+                <div
+                    class="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-accentPrimary/10 to-accentSecondary/10 border border-accentPrimary/20 backdrop-blur-md space-y-4">
+                    <h3
+                        class="text-lg font-heading font-bold text-slate-800 dark:text-white flex items-center space-x-2">
+                        <i data-lucide="award" class="text-accentSecondary w-5 h-5"></i>
+                        <span>Quick Highlights</span>
+                    </h3>
+                    <ul class="space-y-3.5 text-sm text-slate-700 dark:text-slate-300">
+                        <li class="flex items-start space-x-2.5">
+                            <i data-lucide="check-circle-2" class="text-accentCyan w-4 h-4 mt-0.5 flex-shrink-0"></i>
+                            <span><strong>Sports Leadership:</strong> Captained the B.Sc. Physical Science
+                                with CS cricket team at ANDC DU.</span>
+                        </li>
+                        <li class="flex items-start space-x-2.5">
+                            <i data-lucide="check-circle-2" class="text-accentCyan w-4 h-4 mt-0.5 flex-shrink-0"></i>
+                            <span><strong>SIH 2025:</strong> Achieved internal hackathon recognition at
+                                college level.</span>
+                        </li>
+                        <li class="flex items-start space-x-2.5">
+                            <i data-lucide="check-circle-2" class="text-accentCyan w-4 h-4 mt-0.5 flex-shrink-0"></i>
+                            <span><strong>Event Management:</strong> Appointed Event Coordinator for Leiothrixx
+                                '26, leading logistical setups and crowd management.</span>
+                        </li>
+                        <li class="flex items-start space-x-2.5">
+                            <i data-lucide="check-circle-2" class="text-accentCyan w-4 h-4 mt-0.5 flex-shrink-0"></i>
+                            <span><strong>Academic Focus:</strong> Maintaining a consistent 7.41 CGPA in B.Sc. Physical
+                                Science with Computer Science at DU.</span>
+                        </li>
+                        <li class="flex items-start space-x-2.5">
+                            <i data-lucide="check-circle-2" class="text-accentCyan w-4 h-4 mt-0.5 flex-shrink-0"></i>
+                            <span><strong>Creative Media:</strong> Served as official photographer &
+                                videographer for national scientific workshops, departmental tech fests and
+                                Leothrixx'25.</span>
+                        </li>
+                    </ul>
+                </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-24 px-6 md:px-12 max-w-7xl mx-auto scroll-mt-12">
+            <div class="space-y-16">
+                <!-- Section Title -->
+                <div class="text-center space-y-3 scroll-reveal">
+                    <h2 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 dark:text-white">
+                        Experience Timeline</h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-accentPrimary to-accentSecondary mx-auto rounded-full">
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto">A roadmap of my professional
+                        internships and academic research projects.</p>
+                </div>
+
+                <!-- Timeline Container -->
+                <div class="relative max-w-4xl mx-auto pl-8 sm:pl-0">
+                    <!-- Vertical line -->
+                    <div
+                        class="absolute left-8 sm:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accentPrimary via-accentSecondary to-accentCyan -translate-x-[1px]">
+                    </div>
+
+                    <!-- Timeline Item 1 -->
+                    <div class="relative grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 mb-16 scroll-reveal fade-up">
+                        <div
+                            class="absolute left-0 sm:left-1/2 w-6 h-6 rounded-full bg-lightBg dark:bg-slate-900 border-4 border-accentPrimary -translate-x-[11px] sm:-translate-x-3 top-2 shadow-lg z-10">
+                        </div>
+                        <div class="hidden sm:flex justify-end text-right pt-2 pr-4">
+                            <div>
+                                <span
+                                    class="text-sm font-semibold tracking-wider text-accentPrimary uppercase bg-accentPrimary/10 border border-accentPrimary/20 px-3 py-1 rounded-full">07/2025
+                                    - 08/2025</span>
+                                <p class="text-sm font-medium text-slate-500 mt-2">Remote Internship</p>
+                            </div>
+                        </div>
+                        <div
+                            class="p-8 rounded-2xl bg-white border border-slate-200 dark:bg-darkCard dark:border-white/10 shadow-xl hover:border-accentPrimary/40 transition-all duration-300 relative">
+                            <span
+                                class="inline-block sm:hidden text-xs font-semibold text-accentPrimary tracking-wider uppercase mb-2">07/2025
+                                - 08/2025</span>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Web Development & Designing
+                                Intern</h3>
+                            <h4 class="text-base font-semibold text-accentCyan mt-1">Oasis Infobyte (Virtual)</h4>
+                            <ul class="list-disc list-inside space-y-2 mt-4 text-sm text-slate-650 dark:text-slate-300">
+                                <li>Built interactive web applications including UltraEdit Landing Page, Portfolio
+                                    Website, and a responsive To-Do List app.</li>
+                                <li>Recreated professional website layouts using HTML5, CSS3, Flexbox, and CSS Grid for
+                                    cross-device responsive support.</li>
+                                <li>Optimized styling sheets to improve page speed and layout consistency.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="relative grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 mb-16 scroll-reveal fade-up">
+                        <div
+                            class="absolute left-0 sm:left-1/2 w-6 h-6 rounded-full bg-lightBg dark:bg-slate-900 border-4 border-accentSecondary -translate-x-[11px] sm:-translate-x-3 top-2 shadow-lg z-10">
+                        </div>
+                        <div
+                            class="p-8 rounded-2xl bg-white border border-slate-200 dark:bg-darkCard dark:border-white/10 shadow-xl hover:border-accentSecondary/40 transition-all duration-300 sm:col-start-1 relative">
+                            <span
+                                class="inline-block sm:hidden text-xs font-semibold text-accentSecondary tracking-wider uppercase mb-2">06/2025
+                                - 07/2025</span>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white text-left sm:text-right">
+                                Frontend Developer Intern</h3>
+                            <h4 class="text-base font-semibold text-accentSecondary mt-1 text-left sm:text-right">
+                                CodeAlpha (Virtual)</h4>
+                            <ul
+                                class="list-disc list-inside space-y-2 mt-4 text-sm text-slate-655 dark:text-slate-300 text-left">
+                                <li>Designed responsive, modern, and interactive user interfaces using HTML/CSS and core
+                                    Javascript.</li>
+                                <li>Learnt industry-standard web engineering methodologies, emphasizing user-centered
+                                    visual designs.</li>
+                                <li>Collaborated with peers to debug interface issues, optimize loading speeds, and test
+                                    cross-browser features.</li>
+                            </ul>
+                        </div>
+                        <div class="hidden sm:flex justify-start text-left pt-2 pl-4">
+                            <div>
+                                <span
+                                    class="text-sm font-semibold tracking-wider text-accentSecondary uppercase bg-accentSecondary/10 border border-accentSecondary/20 px-3 py-1 rounded-full">06/2025
+                                    - 07/2025</span>
+                                <p class="text-sm font-medium text-slate-500 mt-2">Remote Internship</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="relative grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 scroll-reveal fade-up">
+                        <div
+                            class="absolute left-0 sm:left-1/2 w-6 h-6 rounded-full bg-lightBg dark:bg-slate-900 border-4 border-accentCyan -translate-x-[11px] sm:-translate-x-3 top-2 shadow-lg z-10">
+                        </div>
+                        <div class="hidden sm:flex justify-end text-right pt-2 pr-4">
+                            <div>
+                                <span
+                                    class="text-sm font-semibold tracking-wider text-accentCyan uppercase bg-accentCyan/10 border border-accentCyan/20 px-3 py-1 rounded-full">2026</span>
+                                <p class="text-sm font-medium text-slate-500 mt-2">Academic Research Project</p>
+                            </div>
+                        </div>
+                        <div
+                            class="p-8 rounded-2xl bg-white border border-slate-200 dark:bg-darkCard dark:border-white/10 shadow-xl hover:border-accentCyan/40 transition-all duration-300 relative">
+                            <span
+                                class="inline-block sm:hidden text-xs font-semibold text-accentCyan tracking-wider uppercase mb-2">2026</span>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Independent Researcher</h3>
+                            <h4 class="text-base font-semibold text-accentCyan mt-1">Acharya Narendra Dev College, DU
+                            </h4>
+                            <p class="text-xs text-slate-500 mt-1">Study Topic: <em>Loss of Interest in Studies Among
+                                    Students</em></p>
+                            <ul class="list-disc list-inside space-y-2 mt-4 text-sm text-slate-655 dark:text-slate-300">
+                                <li>Conducted primary-source investigation on student academic stressors focusing on
+                                    psychological, social, and digital environments.</li>
+                                <li>Analyzed the direct academic workloads imposed by the National Education Policy
+                                    (NEP) 2020 on University of Delhi students.</li>
+                                <li>Collected data via Google Forms, generating comprehensive statistical charts and
+                                    visualization diagrams.</li>
+                                <li>Identified key structural stressors: increased course load (SEC, VAC, AEC, and GE
+                                    papers) alongside digital distractions.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 px-6 md:px-12 max-w-7xl mx-auto scroll-mt-12">
+            <div class="space-y-12">
+                <!-- Section Title -->
+                <div class="text-center space-y-3 scroll-reveal">
+                    <h2 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 dark:text-white">Featured
+                        Projects</h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-accentPrimary to-accentSecondary mx-auto rounded-full">
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto">Explore my academic build portfolio
+                        containing computer vision, mobile applications, and web clones.</p>
+                </div>
+
+                <!-- Filters & Search -->
+                <div
+                    class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 max-w-5xl mx-auto bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 p-4.5 rounded-2xl backdrop-blur-md scroll-reveal shadow-md">
+                    <!-- Tabs -->
+                    <div class="flex flex-wrap gap-2">
+                        <button
+                            class="project-tab px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider bg-accentPrimary text-white shadow-md transition-all cursor-pointer"
+                            data-category="all">All</button>
+                        <button
+                            class="project-tab px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-slate-100 text-slate-650 dark:hover:bg-white/10 dark:text-slate-300 transition-all cursor-pointer"
+                            data-category="web">Web Development</button>
+                        <button
+                            class="project-tab px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-slate-100 text-slate-655 dark:hover:bg-white/10 dark:text-slate-300 transition-all cursor-pointer"
+                            data-category="mobile">Mobile Apps</button>
+                        <button
+                            class="project-tab px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-slate-100 text-slate-655 dark:hover:bg-white/10 dark:text-slate-300 transition-all cursor-pointer"
+                            data-category="python">Python & AI</button>
+                    </div>
+                    <!-- Search Input -->
+                    <div class="relative flex-grow md:max-w-xs">
+                        <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                            <i data-lucide="search" class="w-4 h-4 text-slate-400"></i>
+                        </span>
+                        <input type="text" id="project-search" placeholder="Search projects..."
+                            class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 focus:outline-none focus:border-accentPrimary focus:ring-1 focus:ring-accentPrimary dark:bg-slate-900/60 dark:border-white/10 dark:text-slate-100 text-sm transition-all placeholder:text-slate-500">
+                    </div>
+                </div>
+
+                <!-- Projects Grid -->
+                <div id="projects-grid"
+                    class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto scroll-reveal fade-up">
+                    <!-- Cards injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Credentials & Certificates Section -->
+        <section id="certificates" class="py-24 px-6 md:px-12 max-w-7xl mx-auto scroll-mt-12">
+            <div class="space-y-12">
+                <!-- Section Title -->
+                <div class="text-center space-y-3 scroll-reveal">
+                    <h2 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 dark:text-white">
+                        Credentials & Achievements</h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-accentPrimary to-accentSecondary mx-auto rounded-full">
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto">Verify my educational certifications,
+                        hackathon awards, creative efforts, and leadership positions.</p>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap justify-center gap-2 max-w-xl mx-auto scroll-reveal">
+                    <button
+                        class="cert-tab px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider bg-accentSecondary text-white transition-all cursor-pointer"
+                        data-category="all">All</button>
+                    <button
+                        class="cert-tab px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-slate-100 text-slate-655 dark:hover:bg-white/10 dark:text-slate-300 transition-all cursor-pointer"
+                        data-category="tech">Technical & Coursework</button>
+                    <button
+                        class="cert-tab px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-slate-100 text-slate-655 dark:hover:bg-white/10 dark:text-slate-300 transition-all cursor-pointer"
+                        data-category="leadership">Leadership & Coordinating</button>
+                    <button
+                        class="cert-tab px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-slate-100 text-slate-655 dark:hover:bg-white/10 dark:text-slate-300 transition-all cursor-pointer"
+                        data-category="creative">Sports & Creative</button>
+                </div>
+
+                <!-- Certificates Grid -->
+                <div id="certificates-grid"
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto scroll-reveal fade-up">
+                    <!-- Cards injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 px-6 md:px-12 max-w-7xl mx-auto scroll-mt-12">
+            <div class="space-y-12">
+                <!-- Section Title -->
+                <div class="text-center space-y-3 scroll-reveal">
+                    <h2 class="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 dark:text-white">Get In
+                        Touch</h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-accentPrimary to-accentSecondary mx-auto rounded-full">
+                    </div>
+                    <p class="text-slate-650 dark:text-slate-400 max-w-xl mx-auto">Have a project or opportunity? Send
+                        me a message, and I'll get back to you within 24 hours.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-5xl mx-auto">
+                    <!-- Contact info -->
+                    <div class="lg:col-span-5 space-y-8 scroll-reveal fade-left">
+                        <div
+                            class="p-8 rounded-2xl bg-white border border-slate-200 dark:bg-darkCard dark:border-white/10 shadow-xl space-y-6">
+                            <h3 class="text-xl font-heading font-bold text-slate-800 dark:text-white">Contact Details
+                            </h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400">Feel free to reach out via direct
+                                phone call, email, or connect through social networking platforms.</p>
+
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4">
+                                    <div
+                                        class="p-3.5 rounded-xl bg-accentPrimary/10 border border-accentPrimary/20 text-accentPrimary">
+                                        <i data-lucide="mail" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Email
+                                            Address</p>
+                                        <a href="mailto:kunalchaurasiya2006@gmail.com"
+                                            class="text-sm font-bold text-slate-800 dark:text-white hover:text-accentPrimary transition-colors">kunalchaurasiya2006@gmail.com</a>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center space-x-4">
+                                    <div
+                                        class="p-3.5 rounded-xl bg-accentSecondary/10 border border-accentSecondary/20 text-accentSecondary">
+                                        <i data-lucide="phone" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Phone
+                                            Number </p>
+                                        <a href="tel:+918957127225"
+                                            class="text-sm font-bold text-slate-800 dark:text-white hover:text-accentSecondary transition-colors">+91
+                                            8957127225</a>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center space-x-4">
+                                    <div
+                                        class="p-3.5 rounded-xl bg-accentCyan/10 border border-accentCyan/20 text-accentCyan">
+                                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Current
+                                            Location</p>
+                                        <p class="text-sm font-bold text-slate-800 dark:text-white">New Delhi, India</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mini map -->
+                        <div
+                            class="h-48 rounded-2xl bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 overflow-hidden relative group shadow-lg">
+                            <div class="absolute inset-0 bg-slate-900 flex items-center justify-center text-center p-4">
+                                <div class="space-y-2">
+                                    <i data-lucide="compass" class="w-8 h-8 text-accentCyan mx-auto animate-spin"
+                                        style="animation-duration: 10s"></i>
+                                    <p class="text-xs font-semibold text-slate-400">Based in New Delhi, India</p>
+                                    <p class="text-[10px] text-slate-500">Serving Remote & In-office Opportunities</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="lg:col-span-7 scroll-reveal fade-right">
+                        <form id="contact-form"
+                            class="p-8 rounded-2xl bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 shadow-xl space-y-6">
+                            <h3 class="text-xl font-heading font-bold text-slate-800 dark:text-white">Send Message</h3>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label for="form-name"
+                                        class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Your
+                                        Name</label>
+                                    <input type="text" id="form-name" required
+                                        class="w-full px-5 py-3.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-950 focus:outline-none focus:border-accentPrimary focus:ring-1 focus:ring-accentPrimary dark:bg-slate-900/60 dark:border-white/10 dark:text-slate-100 text-sm transition-all"
+                                        placeholder="John Doe">
+                                </div>
+                                <div class="space-y-2">
+                                    <label for="form-email"
+                                        class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Email
+                                        Address</label>
+                                    <input type="email" id="form-email" required
+                                        class="w-full px-5 py-3.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-950 focus:outline-none focus:border-accentPrimary focus:ring-1 focus:ring-accentPrimary dark:bg-slate-900/60 dark:border-white/10 dark:text-slate-100 text-sm transition-all"
+                                        placeholder="johndoe@example.com">
+                                </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label for="form-subject"
+                                    class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Subject</label>
+                                <input type="text" id="form-subject" required
+                                    class="w-full px-5 py-3.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-950 focus:outline-none focus:border-accentPrimary focus:ring-1 focus:ring-accentPrimary dark:bg-slate-900/60 dark:border-white/10 dark:text-slate-100 text-sm transition-all"
+                                    placeholder="Collaboration or Internship Opportunity">
+                            </div>
+
+                            <div class="space-y-2">
+                                <label for="form-message"
+                                    class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Message</label>
+                                <textarea id="form-message" rows="5" required
+                                    class="w-full px-5 py-3.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 focus:outline-none focus:border-accentPrimary focus:ring-1 focus:ring-accentPrimary dark:bg-slate-900/60 dark:border-white/10 dark:text-slate-100 text-sm transition-all"
+                                    placeholder="Tell me about your project or role details..."></textarea>
+                            </div>
+
+                            <button type="submit" id="form-submit"
+                                class="w-full py-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-center text-white bg-gradient-to-r from-accentPrimary to-accentSecondary hover:shadow-[0_0_30px_rgba(99,102,241,0.4)] dark:hover:shadow-[0_0_30px_rgba(99,102,241,0.6)] transition-all duration-300 cursor-pointer flex items-center justify-center space-x-2">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                <span>Send Message</span>
+                            </button>
+
+                            <!-- Status -->
+                            <div id="form-status"
+                                class="hidden text-sm text-center p-3.5 rounded-xl bg-accentCyan/10 border border-accentCyan/20 text-accentCyan">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer
+        class="border-t border-slate-200 dark:border-white/5 py-12 px-6 bg-slate-100 dark:bg-darkBg text-center relative z-10 shadow-inner">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+            <span class="text-sm text-slate-500 font-medium">© 2026 Kunal Chaurasiya. All rights reserved.</span>
+
+            <div class="flex space-x-6 text-sm font-medium text-slate-500 dark:text-slate-400">
+                <a href="#about" class="hover:text-accentPrimary transition-colors">About</a>
+                <a href="#experience" class="hover:text-accentPrimary transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-accentPrimary transition-colors">Projects</a>
+                <a href="#certificates" class="hover:text-accentPrimary transition-colors">Credentials</a>
+            </div>
+
+            <!-- Back to top -->
+            <a href="#"
+                class="p-3 rounded-xl bg-slate-200/50 border border-slate-300 hover:bg-slate-200 text-slate-500 hover:text-accentPrimary dark:bg-white/5 dark:border-white/10 dark:text-slate-400 dark:hover:bg-accentPrimary/20 dark:hover:border-accentPrimary dark:hover:text-accentPrimary transition-all duration-300"
+                aria-label="Back to Top">
+                <i data-lucide="arrow-up" class="w-4 h-4"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Details Modals -->
+    <div id="detail-modal"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+        <div
+            class="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl bg-white border border-slate-200 dark:bg-slate-900 dark:border-white/10 shadow-2xl p-6 sm:p-8 transform scale-95 transition-transform duration-300 scrollbar-thin">
+            <!-- Close button -->
+            <button id="modal-close"
+                class="absolute top-4 right-4 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 dark:bg-white/5 dark:border-white/10 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:border-white/20 dark:hover:text-slate-100 transition-all focus:outline-none cursor-pointer">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- Modal Content -->
+            <div id="modal-content" class="space-y-6"></div>
+        </div>
+    </div>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>

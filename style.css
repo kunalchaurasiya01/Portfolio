@@ -1,0 +1,171 @@
+/* Custom styles extending Tailwind CSS for Kunal Chaurasiya's Portfolio */
+
+/* Base transitions */
+* {
+    transition-property: color, border-color;
+    transition-duration: 200ms;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+.dark ::-webkit-scrollbar-track {
+    background: #090d16;
+}
+.light ::-webkit-scrollbar-track {
+    background: #e5e7eb;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #6366f1;
+}
+.light ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+}
+.light ::-webkit-scrollbar-thumb:hover {
+    background: #a855f7;
+}
+
+/* Interactive Cursor Glow */
+#cursor-glow {
+    background: radial-gradient(400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(99, 102, 241, 0.08) 0%, rgba(168, 85, 247, 0.04) 50%, transparent 100%);
+    pointer-events: none;
+}
+.light #cursor-glow {
+    background: radial-gradient(400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(6, 182, 212, 0.06) 0%, rgba(99, 102, 241, 0.03) 50%, transparent 100%);
+}
+
+/* Navigation blur support */
+#navbar.scrolled {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+.dark #navbar.scrolled {
+    background-color: rgba(9, 13, 22, 0.85);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+.light #navbar.scrolled {
+    background-color: rgba(243, 244, 246, 0.85);
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Glassmorphism helpers for Light Theme overrides */
+.light .bg-darkCard {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #1f2937;
+}
+.light .text-slate-100 {
+    color: #1f2937;
+}
+.light .text-slate-300 {
+    color: #374151;
+}
+.light .text-slate-400 {
+    color: #4b5563;
+}
+.light .bg-white\/5 {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+.light .border-white\/10 {
+    border-color: rgba(0, 0, 0, 0.08);
+}
+.light .border-white\/5 {
+    border-color: rgba(0, 0, 0, 0.05);
+}
+.light .bg-white\/2 {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Typing text blink cursor */
+#typing-text {
+    border-right-width: 2px;
+    animation: blink 0.8s infinite;
+}
+@keyframes blink {
+    50% { border-color: transparent }
+}
+
+/* Scroll-based reveals */
+.scroll-reveal {
+    opacity: 0;
+    transition: opacity 1000ms cubic-bezier(0.16, 1, 0.3, 1), transform 1000ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+.scroll-reveal.fade-up {
+    transform: translateY(40px);
+}
+.scroll-reveal.fade-left {
+    transform: translateX(-50px);
+}
+.scroll-reveal.fade-right {
+    transform: translateX(50px);
+}
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translate(0) scale(1);
+}
+
+/* Grid overlay background design */
+body {
+    background-size: 40px 40px;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+.light body {
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.015) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
+}
+
+/* Hover scales for skills */
+.skill-badge {
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.skill-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+}
+
+/* Custom details modal scrollbar */
+#detail-modal .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+}
+#detail-modal .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 9999px;
+}
+.light #detail-modal .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Neon buttons background */
+.neon-border-hover {
+    position: relative;
+}
+.neon-border-hover::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(90deg, #6366f1, #a855f7, #06b6d4);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 300ms ease;
+}
+.neon-border-hover:hover::after {
+    opacity: 1;
+}
