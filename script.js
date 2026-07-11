@@ -5,16 +5,16 @@ const projects = [
     {
         id: "ai-chatbot",
         title: "Generative AI Chatbot",
-        category: "python",
-        tech: ["Python", "NLP", "Generative AI", "APIs"],
+        category: "web",
+        tech: ["Node.js", "Express", "PostgreSQL", "Gemini API"],
         image: "assets/projects/ai_chatbot.png",
-        shortDesc: "Intelligent, context-aware chatbot powered by generative Large Language Models for seamless conversational interactions.",
-        longDesc: "A complete AI conversational interface developed in Python. Utilizes natural language processing interfaces to build an dynamic dialogue system. Implements local state caching for persistent user memory, custom glassmorphism web layout styling, and an API manager adapter that securely connects to state-of-the-art Generative AI backend servers with robust timeout fallbacks.",
+        shortDesc: "Intelligent, context-aware chatbot powered by the Google Gemini API with support for document analysis and user accounts.",
+        longDesc: "A full-stack AI chatbot application featuring a responsive web frontend and a Node.js Express server. Integrates Google's Gemini API for dynamic conversations and document processing. Uses PostgreSQL (via Supabase) to persist user profiles, chat history, and uploaded document context, complete with bcrypt password hashing and session management, deployed as a serverless application on Vercel.",
         features: [
-            "Contextual session memory cache for organic conversations",
-            "Multi-provider API server integration adapters",
-            "Elegant dark theme message layout with loading status",
-            "Integrated markdown response renderer and formatting"
+            "Google Gemini API integration with history tracking",
+            "User authentication with hashed passwords and session management",
+            "PostgreSQL database storage via Supabase for persistent chat memory",
+            "Document parser (PDF/Text) processing for contextual Q&A"
         ],
         github: "https://github.com/kunalchaurasiya01/AI-Chatbot"
     },
