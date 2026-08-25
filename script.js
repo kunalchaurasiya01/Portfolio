@@ -19,6 +19,22 @@ const projects = [
         github: "https://github.com/kunalchaurasiya01/AI-Chatbot"
     },
     {
+        id: "dav-cadet-tracker",
+        title: "DAV Cadet Tracker",
+        category: "web",
+        tech: ["Node.js", "Express", "MongoDB", "JavaScript (ES6+)", "Tailwind CSS"],
+        image: "assets/projects/dav_cadet_tracker.png",
+        shortDesc: "Comprehensive Cadet Management System for tracking attendance, physical fitness metrics, event schedules, and performance analytics.",
+        longDesc: "A full-featured Cadet Tracker application engineered for managing cadet records, attendance logs, parade drills, physical assessment benchmarks, and event participation. Features a modern dashboard with real-time statistics, cadet profile management, automated attendance reporting, and role-based access control for instructors and cadets.",
+        features: [
+            "Interactive dashboard for cadet enrollment and attendance tracking",
+            "Physical fitness & drill assessment progress monitoring",
+            "Automated report generation and event schedule calendar",
+            "Role-based access management for admin officers and cadets"
+        ],
+        github: "https://github.com/kunalchaurasiya01/DAV"
+    },
+    {
         id: "traffic-system",
         title: "Optimized Traffic Control System",
         category: "python",

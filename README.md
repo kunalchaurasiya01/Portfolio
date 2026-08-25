@@ -63,6 +63,10 @@ Portfolio/
    - HTML5, CSS3, JavaScript (ES6)
    - Interactive client-side audio player with custom seek bars, playlist controls, and dynamic background updates.
 
+5. **🛡️ DAV Cadet Tracker**
+   - Node.js, Express, MongoDB, JavaScript (ES6+), Tailwind CSS
+   - Comprehensive Cadet Management System for tracking attendance, physical fitness metrics, event schedules, and performance analytics.
+
 ---
 
 ## 🚀 Getting Started
