@@ -700,25 +700,60 @@ document.addEventListener("DOMContentLoaded", () => {
             <span>Sending message...</span>
         `;
 
-        // Simulate local submission handling
-        setTimeout(() => {
-            formStatus.className = "text-sm text-center p-3.5 rounded-xl bg-accentCyan/10 border border-accentCyan/20 text-accentCyan";
-            formStatus.textContent = "Message sent successfully! Thank you for reaching out, Kunal will respond shortly.";
-            formStatus.classList.remove("hidden");
+        // Send form data via FormSubmit AJAX API
+        const formData = {
+            name: document.getElementById("form-name").value,
+            email: document.getElementById("form-email").value,
+            _subject: document.getElementById("form-subject").value,
+            message: document.getElementById("form-message").value
+        };
 
-            // Reset submit button and fields
+        fetch("https://formsubmit.co/ajax/kunalchaurasiya2006@gmail.com", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success === "true" || data.success === true) {
+                formStatus.className = "text-sm text-center p-3.5 rounded-xl bg-accentCyan/10 border border-accentCyan/20 text-accentCyan";
+                formStatus.textContent = "Message sent successfully! Thank you for reaching out, Kunal will respond shortly.";
+                formStatus.classList.remove("hidden");
+                contactForm.reset();
+            } else if (data.message && data.message.toLowerCase().includes("activation")) {
+                formStatus.className = "text-sm text-center p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400";
+                formStatus.textContent = "Form Activation Required: Please check kunalchaurasiya2006@gmail.com and click the 'Activate Form' link to enable receiving messages.";
+                formStatus.classList.remove("hidden");
+            } else {
+                throw new Error(data.message || "Failed to send message.");
+            }
+        })
+        .catch(error => {
+            console.error("Form submission error:", error);
+            formStatus.className = "text-sm text-center p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400";
+            formStatus.textContent = (error.message && !error.message.includes("Failed to send message"))
+                ? error.message 
+                : "Oops! Something went wrong while sending your message. Please try again or email directly.";
+            formStatus.classList.remove("hidden");
+        })
+        .finally(() => {
+            // Reset submit button state
             formSubmitBtn.disabled = false;
             formSubmitBtn.innerHTML = `
                 <i data-lucide="send" class="w-4 h-4"></i>
                 <span>Send Message</span>
             `;
-            lucide.createIcons();
-            contactForm.reset();
+            if (window.lucide) {
+                lucide.createIcons();
+            }
 
             // Clear status after 6 seconds
             setTimeout(() => {
                 formStatus.classList.add("hidden");
             }, 6000);
-        }, 1500);
+        });
     });
 });
